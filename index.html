@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tufting TikTok Launch Kit</title>
+<style>
+  :root{
+    --ink:#0a0a0a;
+    --paper:#ffffff;
+    --muted:#6b6b6b;
+    --line:#e3e3e3;
+    --soft:#f5f5f5;
+    --accent:#0a0a0a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 22px 90px;}
+
+  /* Header */
+  header{
+    background:var(--ink);
+    color:var(--paper);
+    padding:54px 22px 46px;
+    text-align:center;
+    margin-bottom:42px;
+  }
+  header .kit-label{
+    letter-spacing:.42em;
+    text-transform:uppercase;
+    font-size:11px;
+    color:#bdbdbd;
+    margin:0 0 14px;
+  }
+  header h1{
+    margin:0;
+    font-size:42px;
+    line-height:1.08;
+    font-weight:800;
+    letter-spacing:-1px;
+  }
+  header p{
+    margin:16px auto 0;
+    max-width:560px;
+    color:#d8d8d8;
+    font-size:16px;
+  }
+  .checker{
+    height:8px;width:100%;
+    background:repeating-linear-gradient(90deg,#0a0a0a 0 18px,#fff 18px 36px);
+  }
+
+  /* Sections */
+  section{margin:0 0 46px;}
+  h2{
+    font-size:13px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--ink);
+    border-bottom:2px solid var(--ink);
+    padding-bottom:8px;
+    margin:0 0 22px;
+  }
+  h3{font-size:19px;margin:26px 0 8px;letter-spacing:-.2px;}
+  p{margin:0 0 14px;}
+  .lead{font-size:17px;color:#222;}
+  strong{font-weight:700;}
+  ul{margin:0 0 16px;padding-left:20px;}
+  li{margin:0 0 8px;}
+  a{color:var(--ink);}
+
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+  .card{
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:18px;
+    background:var(--paper);
+  }
+  .card .tag{
+    display:inline-block;font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+    background:var(--ink);color:#fff;padding:3px 8px;border-radius:4px;margin-bottom:10px;
+  }
+  .card h4{margin:0 0 6px;font-size:16px;}
+  .card p{font-size:14px;color:#444;margin:0;}
+
+  /* Posts */
+  .post{
+    border:1px solid var(--line);
+    border-radius:12px;
+    overflow:hidden;
+    margin-bottom:20px;
+  }
+  .post-head{
+    display:flex;align-items:center;gap:14px;
+    background:var(--soft);
+    padding:14px 18px;
+    border-bottom:1px solid var(--line);
+  }
+  .num{
+    flex:0 0 38px;height:38px;width:38px;
+    background:var(--ink);color:#fff;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:16px;
+  }
+  .post-head .meta{flex:1;}
+  .post-head .meta .t{font-weight:700;font-size:16px;}
+  .post-head .meta .s{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em;}
+  .post-body{padding:18px;}
+  .field{margin:0 0 16px;}
+  .field:last-child{margin-bottom:0;}
+  .field .label{
+    font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    margin-bottom:6px;display:block;
+  }
+  .hook{font-size:18px;font-weight:700;line-height:1.35;}
+  .copybox{position:relative;}
+  pre{
+    margin:0;
+    background:#0a0a0a;
+    color:#f4f4f4;
+    border-radius:8px;
+    padding:16px 16px;
+    font-family:"SF Mono",Menlo,Consolas,monospace;
+    font-size:13px;
+    line-height:1.55;
+    white-space:pre-wrap;
+    word-wrap:break-word;
+  }
+  .tags{color:#9a9a9a;}
+  .copybtn{
+    position:absolute;top:10px;right:10px;
+    background:#fff;color:#0a0a0a;border:none;
+    font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    padding:6px 11px;border-radius:6px;cursor:pointer;
+  }
+  .copybtn:hover{background:#ddd;}
+  .copybtn.done{background:#0a0a0a;color:#fff;}
+
+  /* Callouts */
+  .box{
+    border:1px solid var(--line);border-left:4px solid var(--ink);
+    background:var(--soft);border-radius:8px;padding:18px 20px;margin:0 0 18px;
+  }
+  .box h3{margin-top:0;}
+  table{width:100%;border-collapse:collapse;margin:0 0 16px;font-size:14px;}
+  th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line);}
+  th{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  td:first-child{font-weight:700;white-space:nowrap;}
+
+  .schedule{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+  .day{border:1px solid var(--line);border-radius:8px;padding:12px 8px;text-align:center;}
+  .day .d{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);}
+  .day .a{font-size:13px;font-weight:600;margin-top:6px;line-height:1.25;}
+
+  footer{
+    text-align:center;color:var(--muted);font-size:13px;
+    border-top:1px solid var(--line);padding-top:24px;margin-top:50px;
+  }
+
+  @media (max-width:680px){
+    header h1{font-size:32px;}
+    .grid3{grid-template-columns:1fr;}
+    .schedule{grid-template-columns:repeat(2,1fr);}
+  }
+  @media print{
+    .copybtn{display:none;}
+    header{padding:30px;}
+    pre{background:#f2f2f2;color:#111;border:1px solid #ccc;}
+    .post,.card,.box{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="kit-label">TikTok Launch Kit</p>
+  <h1>Black &amp; White Rugs</h1>
+  <p>Turn your first 3 tufted rugs into a TikTok page and your first orders. Brand, plan, and 7 copy-ready posts.</p>
+</header>
+<div class="checker"></div>
+
+<div class="wrap">
+
+  <section>
+    <h2>The Brand Angle</h2>
+    <p class="lead">All three of your rugs are black and white. That's not a limitation - it's your identity. Build "<strong>the black-and-white rug account</strong>."</p>
+    <ul>
+      <li><strong>Instant cohesion.</strong> Your grid looks like a brand from day one, even with only a few posts.</li>
+      <li><strong>Scroll-stopping.</strong> A monochrome feed stands out in a niche drowning in rainbow yarn.</li>
+      <li><strong>Premium feel.</strong> B&amp;W reads as "art," which supports higher custom pricing.</li>
+    </ul>
+    <p>Keep every thumbnail, backdrop, and prop in the same monochrome world so the page stays unmistakably yours.</p>
+  </section>
+
+  <section>
+    <h2>What Each Rug Is For</h2>
+    <p>Three rugs already cover the three things that sell: <strong>fandom, custom typography, and art-decor.</strong></p>
+    <div class="grid3">
+      <div class="card">
+        <span class="tag">Viral Magnet</span>
+        <h4>Heisenberg Portrait</h4>
+        <p>Fandom rug = built-in audience already searching for it. Also proves you do premium <em>portraits</em> (faces, pets, characters).</p>
+      </div>
+      <div class="card">
+        <span class="tag">Sales Closer</span>
+        <h4>Text Rug</h4>
+        <p>Proves you can tuft <em>anything</em>: names, quotes, dates, logos. The CTA writes itself - "I can make yours say anything."</p>
+      </div>
+      <div class="card">
+        <span class="tag">Aesthetic</span>
+        <h4>Melted Yin &amp; Yang</h4>
+        <p>The oddly-satisfying, abstract-art piece. Perfect for ASMR close-ups and trending-audio decor content.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Content Multiplication</h2>
+    <p>You don't need 3 videos - you need ~15. Each finished rug is a content mine:</p>
+    <ul>
+      <li><strong>Styled reveal</strong> - rug on a clean wall/floor, good light, slow pan, trending sound.</li>
+      <li><strong>Texture / ASMR close-up</strong> - macro of the pile, hand running over the carved edges.</li>
+      <li><strong>"Rate my first 3 rugs 1-10"</strong> - comment-bait the algorithm loves.</li>
+      <li><strong>"Which should I sell first?"</strong> - everyone who votes is a warm lead.</li>
+      <li><strong>Custom pitch</strong> - hold up the text rug: "this can say literally anything."</li>
+      <li><strong>Then start filming your next rug from line one</strong> - the start-to-finish build video is the evergreen engine that never runs out.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>The First 7 Posts</h2>
+    <p style="color:#444">Hooks are the on-screen text + first 3 seconds. Tap <strong>COPY</strong> on any caption to grab it with hashtags ready to paste.</p>
+
+    <!-- POST 1 -->
+    <div class="post">
+      <div class="post-head">
+        <div class="num">1</div>
+        <div class="meta"><div class="t">Founder Intro</div><div class="s">Show all 3 rugs &middot; build trust</div></div>
+      </div>
+      <div class="post-body">
+        <div class="field">
+          <span class="label">Hook (on-screen, first 3s)</span>
+          <div class="hook">"POV: you taught yourself to tuft and these are your first 3 rugs."</div>
+        </div>
+        <div class="field">
+          <span class="label">Caption + CTA + Hashtags</span>
+          <div class="copybox">
+            <button class="copybtn">Copy</button>
+            <pre>Three rugs in and officially obsessed 🖤 I taught myself to tuft and went all black &amp; white on purpose - this is the page now.
+
+Text rug, a melted yin &amp; yang, and Heisenberg. Which one's your favorite? 👇
+
+Follow to watch me build #4 from scratch - and yes, customs are OPEN. DM me a word, a logo, or a face.
+
+<span class="tags">#rugtufting #tufting #tuftedrug #smallbusinesstiktok #blackandwhiteaesthetic #handmade #fyp</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 2 -->
+    <div class="post">
+      <div class="post-head">
+        <div class="num">2</div>
+        <div class="meta"><div class="t">Heisenberg Reveal</div><div class="s">Fandom hook &middot; your viral shot</div></div>
+      </div>
+      <div class="post-body">
+        <div class="field">
+          <span class="label">Hook (on-screen, first 3s)</span>
+          <div class="hook">"I tufted Heisenberg... say my name. 🧪"</div>
+        </div>
+        <div class="field">
+          <span class="label">Caption + CTA + Hashtags</span>
+          <div class="copybox">
+            <button class="copybtn">Copy</button>
+            <pre>Made the one who knocks 🧪 Full black &amp; white Heisenberg portrait, hand-tufted from scratch.
+
+Breaking Bad fans where you at? Should the next portrait be Jesse or Saul? 👇
+
+I do custom portrait rugs - faces, pets, characters, anyone. DM "PORTRAIT" to start yours.
+
+<span class="tags">#breakingbad #heisenberg #saymyname #rugtufting #fanart #customrug #tufting #portraitart #fyp</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 3 -->
+    <div class="post">
+      <div class="post-head">
+        <div class="num">3</div>
+        <div class="meta"><div class="t">Text Rug / Custom Pitch</div><div class="s">Drive commissions</div></div>
+      </div>
+      <div class="post-body">
+        <div class="field">
+          <span class="label">Hook (on-screen, first 3s)</span>
+          <div class="hook">"This rug can say literally anything you want."</div>
+        </div>
+        <div class="field">
+          <span class="label">Caption + CTA + Hashtags</span>
+          <div class="copybox">
+            <button class="copybtn">Copy</button>
+            <pre>Your name. Your quote. Your business logo. Your wedding date. If you can say it, I can tuft it 🖤
+
+This text rug is proof - tell me what yours would say in the comments 👇
+
+Custom orders are open. DM "TEXT" for a quote (pun intended).
+
+<span class="tags">#customrug #tuftedrug #personalized #rugtufting #namerug #smallbusiness #handmadegifts #fyp</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 4 -->
+    <div class="post">
+      <div class="post-head">
+        <div class="num">4</div>
+        <div class="meta"><div class="t">Yin &amp; Yang ASMR</div><div class="s">Oddly-satisfying reach</div></div>
+      </div>
+      <div class="post-body">
+        <div class="field">
+          <span class="label">Hook (on-screen, first 3s)</span>
+          <div class="hook">"A melted yin &amp; yang shouldn't be this satisfying..."</div>
+        </div>
+        <div class="field">
+          <span class="label">Caption + CTA + Hashtags</span>
+          <div class="copybox">
+            <button class="copybtn">Copy</button>
+            <pre>Balance, but make it drip 🖤🤍 Close-up on the pile because this texture lives rent free in my head.
+
+Turn your sound on for the carve 🎧 Would this go in your room?
+
+Want an abstract piece like this? DM "ART" - I take custom designs.
+
+<span class="tags">#oddlysatisfying #asmr #tufting #abstractart #rugtok #rugtufting #homedecor #fyp</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 5 -->
+    <div class="post">
+      <div class="post-head">
+        <div class="num">5</div>
+        <div class="meta"><div class="t">Start Rug #4</div><div class="s">Begin your evergreen build engine</div></div>
+      </div>
+      <div class="post-body">
+        <div class="field">
+          <span class="label">Hook (on-screen, first 3s)</span>
+          <div class="hook">"Starting a new rug from scratch - guess what it is. 👀"</div>
+        </div>
+        <div class="field">
+          <span class="label">Caption + CTA + Hashtags</span>
+          <div class="copybox">
+            <button class="copybtn">Copy</button>
+            <pre>New rug, blank cloth, full chaos 👀 Drawing the design and loading the gun - any guesses what this turns into?
+
+Part 1 of the build. Follow so you don't miss the reveal 🖤
+
+Spots for customs are open this month. DM to claim one.
+
+<span class="tags">#rugtufting #tufting #tuftinggun #processvideo #wip #satisfying #smallbusinesstiktok #fyp</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 6 -->
+    <div class="post">
+      <div class="post-head">
+        <div class="num">6</div>
+        <div class="meta"><div class="t">Rate My First 3</div><div class="s">Engagement + reach</div></div>
+      </div>
+      <div class="post-body">
+        <div class="field">
+          <span class="label">Hook (on-screen, first 3s)</span>
+          <div class="hook">"Be honest... rate my first 3 rugs, 1 to 10."</div>
+        </div>
+        <div class="field">
+          <span class="label">Caption + CTA + Hashtags</span>
+          <div class="copybox">
+            <button class="copybtn">Copy</button>
+            <pre>No lies, only vibes - rate all 3 in the comments 1-10 🖤 Self-taught, all black &amp; white, be brutal.
+
+Whichever scores highest, I'll make a mini version to give away to one of you 👀
+
+New here? I take custom orders - DM anytime.
+
+<span class="tags">#rugtufting #rate #tufting #tuftedrug #handmade #blackandwhite #giveaway #fyp</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- POST 7 -->
+    <div class="post">
+      <div class="post-head">
+        <div class="num">7</div>
+        <div class="meta"><div class="t">Build Reveal / How It's Made</div><div class="s">Convert viewers to buyers</div></div>
+      </div>
+      <div class="post-body">
+        <div class="field">
+          <span class="label">Hook (on-screen, first 3s)</span>
+          <div class="hook">"How a custom rug actually gets made (start to finish)."</div>
+        </div>
+        <div class="field">
+          <span class="label">Caption + CTA + Hashtags</span>
+          <div class="copybox">
+            <button class="copybtn">Copy</button>
+            <pre>From a line on the cloth to a finished piece 🖤 Punch, carve, shear, reveal - the whole process in 30 seconds.
+
+This is exactly what your custom order looks like behind the scenes.
+
+Want one with YOUR design? DM "ORDER" - 50% deposit holds your spot, 2-4 week turnaround.
+
+<span class="tags">#rugtufting #tufting #processvideo #customrug #satisfying #tuftedrug #smallbusiness #fyp</span></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Your First Week</h2>
+    <div class="schedule">
+      <div class="day"><div class="d">Day 1</div><div class="a">Founder intro</div></div>
+      <div class="day"><div class="d">Day 2</div><div class="a">Heisenberg reveal</div></div>
+      <div class="day"><div class="d">Day 3</div><div class="a">Text custom pitch</div></div>
+      <div class="day"><div class="d">Day 4</div><div class="a">Yin-yang ASMR</div></div>
+      <div class="day"><div class="d">Day 5</div><div class="a">Start rug #4</div></div>
+      <div class="day"><div class="d">Day 6</div><div class="a">Rate my 3</div></div>
+      <div class="day"><div class="d">Day 7</div><div class="a">Build reveal</div></div>
+    </div>
+    <p style="margin-top:16px;color:#444">Then repeat the rhythm: post the next build in parts, sprinkle in ASMR + custom pitches, and keep going <strong>3-5x a week</strong>. Hook in the first 3 seconds, use trending audio, end every post with a CTA.</p>
+  </section>
+
+  <section>
+    <h2>Set Up The Page To Sell</h2>
+    <div class="box">
+      <h3>Bio</h3>
+      <div class="copybox">
+        <button class="copybtn">Copy</button>
+        <pre>🖤 Black &amp; white handmade rugs
+✦ Custom logos, portraits &amp; text
+📩 DM to order | 2-4 wk turnaround
+👇 Shop / order form</pre>
+      </div>
+      <p style="margin:14px 0 0;font-size:14px;color:#444"><strong>Pin</strong> your strongest reveal (probably Heisenberg) to the top of your profile.</p>
+    </div>
+
+    <h3>The non-negotiables</h3>
+    <ul>
+      <li><strong>A CTA on every single post.</strong> "DM to order," "link in bio," "comment your design." Never post a rug without telling people how to buy.</li>
+      <li><strong>Sell capability, not inventory.</strong> You don't need a shelf of stock - the text rug proves typography, Heisenberg proves portraits. Open for commissions now.</li>
+      <li><strong>The first-order hack.</strong> Gift one free small logo rug to a local business or mid-size creator. One share from them can land your first handful of paying orders.</li>
+      <li><strong>Reply to every comment &amp; DM fast.</strong> Early engagement and quick replies are what convert curiosity into a sale.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Pricing &amp; Commission Flow</h2>
+    <table>
+      <tr><th>Component</th><th>Guide</th></tr>
+      <tr><td>Materials</td><td>~$40-60 per standard rug (yarn, cloth, glue, backing)</td></tr>
+      <tr><td>Labor</td><td>No less than ~$25/hr, or price per square foot</td></tr>
+      <tr><td>Typical sell price</td><td>$200-300 standard; portraits &amp; logos priced higher</td></tr>
+      <tr><td>Deposit</td><td>50% upfront before you start, balance on completion</td></tr>
+      <tr><td>Turnaround</td><td>State it clearly (2-4 weeks) and stick to it</td></tr>
+    </table>
+    <div class="box">
+      <h3>DM intake script</h3>
+      <div class="copybox">
+        <button class="copybtn">Copy</button>
+        <pre>Thanks for reaching out! 🖤 To quote your custom rug I just need:
+1. Design or reference image
+2. Size (e.g. 2x3 ft)
+3. Deadline (any date you need it by?)
+
+I'll send a price + timeline. To book, it's a 50% deposit and your spot is locked in. Turnaround is usually 2-4 weeks.</pre>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Tufting TikTok Launch Kit &middot; Black &amp; White Rugs &middot; Built from last-30-days RugTok research
+  </footer>
+
+</div>
+
+<script>
+  document.querySelectorAll('.copybtn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var pre = btn.parentElement.querySelector('pre');
+      var text = pre.innerText;
+      navigator.clipboard.writeText(text).then(function(){
+        var old = btn.textContent;
+        btn.textContent = 'Copied';
+        btn.classList.add('done');
+        setTimeout(function(){ btn.textContent = old; btn.classList.remove('done'); }, 1500);
+      });
+    });
+  });
+</script>
+</body>
+</html>
